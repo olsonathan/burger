@@ -1,7 +1,10 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
+var idSEL = 0
+
 $(function() {
   $(".eat_it").on("click", function(event) {
-    var id = $(this).data("id");
+   // var id = $(this).data("id");
+    var id = idSEL;
     var newSleep = $(this).data("newsleep");
 
     var newSleepState = {
@@ -16,6 +19,7 @@ $(function() {
       function() {
         console.log("changed sleep to", newSleep);
         // Reload the page to get the updated list
+        $(this).parents("tr").remove();
         location.reload();
       }
     );
@@ -24,7 +28,11 @@ $(function() {
   $("#table tr").click(function(){
     $(this).addClass('selected').siblings().removeClass('selected');    
     var value=$(this).find('td:first').html();
-    //alert(value);    
+    console.log(value);
+    console.log(typeof value)
+    idSEL = parseInt(value);
+    console.log(typeof idSEL)
+    return value  
  });
  
 
@@ -33,9 +41,11 @@ $(function() {
     event.preventDefault();
 
     var newSand = {
-      name: $("#sa").val(),
+      name: $("#sa").val().trim(),
+      devoured: 0
      };
 
+     console.log(newSand)
     // Send the POST request.
     $.ajax("/api/burger", {
       type: "POST",
@@ -48,4 +58,29 @@ $(function() {
       }
     );
   });
+/*
+  $(document).ready(function() {
+    
+        $('td:nth-child(3)').hide();
+        // if your table has header(th), use this
+        $('td:nth-child(3),th:nth-child(3)').hide();
+    
+});
+*/
+$(document).ready(function() {
+    $('#table tr').each(function () {
+      var tdText = $(this).children('td:nth-child(3)').text();
+      if (tdText == 1)
+        $(this).hide();
+    });
+
+    $('td:nth-child(3)').hide();
+    // if your table has header(th), use this
+    $('td:nth-child(3),th:nth-child(3)').hide();
+
+
+});
+
+
+
 });

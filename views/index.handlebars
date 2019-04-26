@@ -36,16 +36,6 @@
         </tr> 
         {{/users}}
 
-
-        <tbody>
-  {{#each array}}
-    <tr>
-    	{{#each this}}
-        <td>{{this}}</td>
-      {{/each}}
-    </tr>
-  {{/each}} 
-
                       <td> 
                      {{#unless devoured}}
                      
@@ -54,11 +44,20 @@
                         {{/unless}}
                      </td>
 
-class="table table-striped"
 
-{{this}}
+          <td>
+             {{#unless devoured}}
+                     
+                  {{this}}
+                   
+              {{/unless}}
+                        
+           </td>
 
-{{> sandwhich/sand-block devoured=true}}
+
+
+
+
   -->
 
 
@@ -71,13 +70,28 @@ class="table table-striped"
         
         <table class="table">
 
-                <tbody id="table">
+                
                   <div>
-                  
+                  <thead>
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                           Name
+                       </th>
+
+                       <th>
+                          ActiveYN
+                        </th>
+                      </tr>
+                    </thead>
+                  <tbody id="table">
                   {{#each sandwhich}}
                   <tr>
                     {{#each this}}
                       <td>
+
                         {{#unless devoured}}
                      
                         {{this}}
@@ -132,7 +146,7 @@ class="table table-striped"
 
            <div class="form-group">
               <label for="sa">Sandwhich:</label>
-               <input type="text" id="ca" name="name">
+               <input type="text" id="sa" name="name">
             </div>
 
             <button type="submit">Add a Sandwhich</button>
