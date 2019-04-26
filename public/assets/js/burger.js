@@ -21,10 +21,10 @@ $(function() {
     );
   });
 
-  $("#table li").click(function(){
+  $("#table tr").click(function(){
     $(this).addClass('selected').siblings().removeClass('selected');    
     var value=$(this).find('td:first').html();
-    alert(value);    
+    //alert(value);    
  });
  
 
@@ -32,15 +32,14 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newCat = {
-      name: $("#ca").val().trim(),
-      sleepy: $("[name=sleepy]:checked").val().trim()
-    };
+    var newSand = {
+      name: $("#sa").val(),
+     };
 
     // Send the POST request.
     $.ajax("/api/burger", {
       type: "POST",
-      data: newCat
+      data: newSand
     }).then(
       function() {
         console.log("created new Sandwhich");

@@ -27,27 +27,80 @@
 
   </div>
 
+<!-- 
+ {{#users}} 
+        <tr> 
+            <td>{{fullName person}}</td> 
+            <td>{{jobTitle}}</td> 
+            <td><a href="https://twitter.com/{{twitter}}">@{{twitter}}</a></td> 
+        </tr> 
+        {{/users}}
+
+
+        <tbody>
+  {{#each array}}
+    <tr>
+    	{{#each this}}
+        <td>{{this}}</td>
+      {{/each}}
+    </tr>
+  {{/each}} 
+
+                      <td> 
+                     {{#unless devoured}}
+                     
+                      {{> sandwhich/sand-block devoured=true}}
+                   
+                        {{/unless}}
+                     </td>
+
+class="table table-striped"
+
+{{this}}
+
+{{> sandwhich/sand-block devoured=true}}
+  -->
+
 
   <div class="row">
       <div class="col-md-5" > 
 
                   <h2>Sandwhichs to be eaten</h2>
 
+          
+        
+        <table class="table">
+
                 <tbody id="table">
+                  <div>
                   
                   {{#each sandwhich}}
                   <tr>
-                   <td> {{#unless devoured}}
+                    {{#each this}}
+                      <td>
+                        {{#unless devoured}}
                      
-                      {{> sandwhich/sand-block devoured=true}}
-                    </td>
-                    {{/unless}}
+                        {{this}}
+                   
+                        {{/unless}}
+                        
+                        </td>
+                     
+                     
+                     
+                     {{/each}}
+                   
+                    
                   </tr>
                   {{/each}}
                   
                 </tbody>
 
             </div>
+
+          </table>
+     </div>
+
 
         <div class="col-md-2" > 
          
@@ -58,14 +111,13 @@
 
             <h2>Sandwhichs that you have ate</h2>
 
-            <tbody style="color: blue" >
+            
               {{#each sandwhich}}
                 {{#if devoured}}
                   {{> sandwhich/sand-block devoured=false}}
                 {{/if}}
               {{/each}}
-            </tbody>
-
+           
             </div>
 
             </div>
@@ -79,7 +131,7 @@
           <form class="create-form">
 
            <div class="form-group">
-              <label for="ca">Sandwhich:</label>
+              <label for="sa">Sandwhich:</label>
                <input type="text" id="ca" name="name">
             </div>
 
