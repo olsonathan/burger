@@ -1,33 +1,56 @@
 <div class="container">
 
   <div class="row">
-        <div class="col-md-4" >    
-        </div>
-                   
-        <div class="col-md-4" style= "background-color: #ffffff; border-bottom: 2px solid #dddddd; border-width: 10%">
-                    <h1>Sandwhichs!!!</h1>  
+                         
+        <div class="col-md-12">
+                    <h1  class="text-center">Sandwhichs!!!</h1>  
         </div>
 
-        <div class="col-md-4">    
-        </div>
+        
   </div>
+
+  <div class="row">
+
+      <div class="col-md-5">
+                    
+      </div>
+
+      <div class="col-md-4" > 
+         <button class="eat_it" data-id="{{id}}" data-newsleep="{{sleep}}">
+		            Eat a Sandwhich
+          	</button>
+      </div>
+
+    
+
+
+
+  </div>
+
 
   <div class="row">
       <div class="col-md-5" > 
 
                   <h2>Sandwhichs to be eaten</h2>
 
-                <ul>
+                <tbody id="table">
+                  
                   {{#each sandwhich}}
-                    {{#unless devoured}}
-                      {{> cats/cat-block sleep=true}}
+                  <tr>
+                   <td> {{#unless devoured}}
+                     
+                      {{> sandwhich/sand-block devoured=true}}
+                    </td>
                     {{/unless}}
+                  </tr>
                   {{/each}}
-                </ul>
+                  
+                </tbody>
 
             </div>
 
         <div class="col-md-2" > 
+         
           </div>
 
         <div class="col-md-5" > 
@@ -35,20 +58,20 @@
 
             <h2>Sandwhichs that you have ate</h2>
 
-            <ul>
+            <tbody style="color: blue" >
               {{#each sandwhich}}
                 {{#if devoured}}
-                  {{> cats/cat-block sleep=false}}
+                  {{> sandwhich/sand-block devoured=false}}
                 {{/if}}
               {{/each}}
-            </ul>
+            </tbody>
 
             </div>
 
             </div>
 
   <div class="row">
-        <div class="col-md-4" >    
+        <div class="col-md-5" >    
         </div>
                    
         <div class="col-md-4" >
@@ -68,8 +91,7 @@
 
         </div>
 
-        <div class="col-md-4">    
-        </div>
+        
   </div>
 
 
