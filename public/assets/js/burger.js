@@ -17,7 +17,7 @@ $(function() {
       data: newSleepState
     }).then(
       function() {
-        console.log("changed sleep to", newSleep);
+        console.log("you ate it", newSleep);
         // Reload the page to get the updated list
         $(this).parents("tr").remove();
         location.reload();
@@ -28,10 +28,10 @@ $(function() {
   $("#table tr").click(function(){
     $(this).addClass('selected').siblings().removeClass('selected');    
     var value=$(this).find('td:first').html();
-    console.log(value);
-    console.log(typeof value)
+//    console.log(value);
+//    console.log(typeof value)
     idSEL = parseInt(value);
-    console.log(typeof idSEL)
+//    console.log(typeof idSEL)
     return value  
  });
  

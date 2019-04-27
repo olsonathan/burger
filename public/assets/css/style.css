@@ -1,7 +1,15 @@
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
 li {
   padding: 5px;
   margin: 5px;
-  background: #faebd7;
+  background: #ec7f7f;
 }
 
 .label {
@@ -24,5 +32,18 @@ li {
 }
 
 #table {
-  background: #faebd7;
+  background: #b9ec90;
+}
+
+body{
+  background-image: url('/assets/images/photo-1430931071372-38127bd472b8.jpg');
+  background-size: cover;
+}
+
+#addSand{
+  background: white;
+}
+
+#head {
+  color: white ;
 }
