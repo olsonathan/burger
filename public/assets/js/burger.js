@@ -78,6 +78,10 @@ $(document).ready(function() {
     // if your table has header(th), use this
     $('td:nth-child(3),th:nth-child(3)').hide();
 
+    $('td:nth-child(4)').hide();
+    // if your table has header(th), use this
+    $('td:nth-child(4),th:nth-child(4)').hide();
+
 
 });
 
